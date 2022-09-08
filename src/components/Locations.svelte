@@ -16,6 +16,20 @@
 </script>
 
 <div>
+	<h2>Locations</h2>
+	
+	{#if locations?.length}
+		<ul>
+			{#each locations as loc (loc.id)}
+				<button on:click={selectedLocation.set(loc)}>
+					<span>{loc.name}</span>
+					<span>{loc.address1 + (loc.address2 ?? '')}</span>
+				</button>
+			{/each}
+		</ul>
+	{:else}
+		...loading
+	{/if}
 
 </div>
 

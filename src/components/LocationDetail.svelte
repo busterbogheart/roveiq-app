@@ -1,8 +1,20 @@
 <script>
-
+import { store, selectedLocation as loc } from "$lib/store";
 </script>
 
 <div class='container'>
+	
+{#if $store && $loc}
+	<img src='{$loc.banner_img}' />
+	<span class='logo'>
+		<img src='{$loc.logo_img}'/>
+		<h2>{$loc.name}</h2>
+	</span>
+	<span>{$loc.description}</span>
+	<div>{$loc.address1 + ($loc.address2 ?? '')}</div>
+{:else}
+	
+{/if}
 	
 </div>
 
